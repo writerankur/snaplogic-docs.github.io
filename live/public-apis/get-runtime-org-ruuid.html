@@ -1,0 +1,390 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="description" content="retrieves information about the Task run with the specified Runtime ID."><link rel="stylesheet" type="text/css" href="../theme/commonltr.css"><link rel="stylesheet" type="text/css" href="../theme/sldocs.css"><title>GET /runtime/{org}/{ruuid}</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <!-- <script src="https://kit.fontawesome.com/enter-your-own-fontawesome-code.js" crossorigin="anonymous"></script> -->
+</head><body id="get-runtime-org-ruuid"><header role="banner"><div class="header">
+  <a href="/index.html"><ph class="site-title"><image conkeyref="k-icons/logo"></image> Documentation</ph></a>
+</div></header><nav role="toc"><ul><li><span>Getting Started</span></li><li><span>Release Notes</span></li><li><span>SnapLogic Concepts</span><ul><li><span>Snaps and Pipelines</span><ul><li><span>Snap Reference</span></li></ul></li><li><span>Tasks</span></li><li><span>Flows</span></li></ul></li><li><span>SnapLogic Designer</span></li><li><span>SnapLogic Manager</span><ul><li><span>Proxies</span><ul><li><a href="../apim/proxies.html">Proxies for APIs</a><ul><li><a href="../apim/proxy-details.html">Proxy Details</a></li><li><a href="../apim/proxy-endpoints.html">Proxy Endpoints</a></li><li><a href="../apim/proxy-endpoint-details.html">Proxy Endpoint Details</a></li><li><a href="../apim/proxy-security-policies.html">Proxy Security Policies</a></li></ul></li></ul></li><li><span>Manager</span><ul><li><a href="../manager/manager-features.html">SnapLogic Features for Orgs</a></li></ul></li></ul></li><li><span>SnapLogic Monitoring Dashboard</span></li><li><a href="../sl-studio/about-studio.html">BETA | SnapLogic Studio</a><ul><li><span>Develop</span></li><li><span>Analyze</span><ul><li><a href="../sl-studio/analyze-execution.html">BETA | Analyze: Execution Overview</a><ul><li><a href="../sl-studio/analyze-execution-detail.html">BETA | Analyze: Execution Details</a></li></ul></li></ul></li><li><span>Explore</span></li></ul></li><li><span>SnapLogic Platform</span></li><li><span>Administration and Configuration</span></li><li><span>SnapLogic API Management</span></li><li><a href="../public-apis/public-apis.html">SnapLogic Public APIs</a><ul><li><span>Activity APIs</span><ul><li><a href="../public-apis/get-activities-org.html">GET /activities/{org}</a></li></ul></li><li><span>Asset ACL APIs</span><ul><li><a href="../public-apis/post-assetapi-acl-projpath.html">POST /assetapi/acl/{project_path}</a></li><li><a href="../public-apis/get-assetapi-acl-projpath.html">GET /assetapi/acl/{project_path}</a></li><li><a href="../public-apis/delete-assetapi-acl-projpath.html">DELETE /assetapi/acl/{project_path}</a></li></ul></li><li><span>Project APIs</span><ul><li><a href="../public-apis/post-project-projpath.html">POST /project/{project_or_space_path}</a></li><li><a href="../public-apis/put-project-projpath.html">PUT /project/{project_or_space_path}</a></li></ul></li><li><span>GitHub APIs</span><ul><li><a href="../public-apis/post-project-checkout-projpath.html">POST /project/checkout/{project_path}</a></li><li><a href="../public-apis/post-project-pull-projpath.html">POST /project/pull/{project_path}</a></li><li><a href="../public-apis/post-ghwebhook.html">POST /ghwebhook</a></li><li><a href="../public-apis/get-repo-status-projpath.html">GET /repo-status/{project_path}</a></li></ul></li><li><span>Log APIs</span><ul><li><a href="../public-apis/get-log-org.html">GET /log/{org}</a></li></ul></li><li><span>Pipeline Monitoring APIs</span><ul><li><a href="../public-apis/get-runtime-org.html">GET /runtime/{org}</a></li><li class="active"><a href="../public-apis/get-runtime-org-ruuid.html">GET /runtime/{org}/{ruuid}</a></li><li><a href="../public-apis/get-runtime-apistats-org.html">GET /runtime/api-stats/{org}</a></li><li><a href="../public-apis/get-runtime-apistats-org-daily.html">GET /runtime/api-stats/{org}/daily</a></li><li><a href="../public-apis/get-runtime-apistats-org-concurrent.html">GET /runtime/api-stats/{org}/concurrent</a></li><li><a href="../public-apis/post-runtime-start-org-ruuid.html">POST /runtime/start/{org}/{ruuid}</a></li><li><a href="../public-apis/post-runtime-stop-org-ruuid.html">POST /runtime/stop/{org}/{ruuid}</a></li></ul></li><li><span>Project Migration APIs</span><ul><li><a href="../public-apis/post-project-migrate-projpath.html">POST /project/migrate/{project_path}</a></li><li><a href="../public-apis/get-migrate-status-token.html">GET /migrate/{status_token}</a></li></ul></li><li><span>Snaplex Management APIs</span><ul><li><a href="../public-apis/post-snaplex-restart-plexpath-hostname.html">POST /snaplex/restart/{plex_path}/{hostname}</a></li><li><a href="../public-apis/post-snaplex-maintenance-plexpath-hostname.html">POST /snaplex/maintenance/{plex_path}/{hostname}</a></li><li><a href="../public-apis/get-snaplex-config-plexpath.html">GET /snaplex/config/{plex_path}</a></li></ul></li><li><span>Snaplex Monitoring APIs</span><ul><li><a href="../public-apis/get-snaplex-org.html">GET /snaplex/{org}</a></li></ul></li><li><span>Snaplex Version APIs</span><ul><li><a href="../public-apis/post-snaplex-version-plexpath.html">POST /snaplex/version/{plex_path}</a></li><li><a href="../public-apis/post-snaplex-version-latest-plexpath.html">POST /snaplex/version/latest/{plex_path}</a></li><li><a href="../public-apis/get-snaplex-version.html">GET /snaplex/version</a></li><li><a href="../public-apis/get-snaplex-version-latest.html">GET /snaplex/version/latest</a></li></ul></li><li><span>User and Group Management APIs</span><ul><li><a href="../public-apis/post-users.html">POST /users</a></li><li><a href="../public-apis/get-users-email.html">GET /users/{email}</a></li><li><a href="../public-apis/put-users-email.html">PUT /users/{email}</a></li><li><a href="../public-apis/delete-users-email.html">DELETE /users/{email}</a></li><li><a href="../public-apis/post-groups.html">POST /groups</a></li><li><a href="../public-apis/get-groups-org.html">GET /groups/{org}</a></li><li><a href="../public-apis/get-groups-org-group.html">GET /groups/{org}/{groupname}</a></li><li><a href="../public-apis/patch-groups-org-group.html">PATCH /groups/{org}/{groupname}</a></li><li><a href="../public-apis/put-groups-org-group.html">PUT /groups/{org}/{groupname}</a></li><li><a href="../public-apis/delete-groups-org-group.html">DELETE /groups/{org}/{groupname}</a></li></ul></li><li><a href="../public-apis/api-perms-vs-manager-perms.html">Permissions in Manager and in APIs</a></li></ul></li></ul></nav><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+
+  <h1 class="title topictitle1" id="ariaid-title1">GET /runtime/{org}/{ruuid}</h1>
+  
+
+  
+
+  <div class="body conbody"><p class="shortdesc"><span class="ph">retrieves information about the Task run with the specified Runtime ID.</span></p>
+
+    <section class="section"><h2 class="title sectiontitle">Overview</h2>
+      
+
+      <p class="p">This API <span class="ph" id="get-runtime-org-ruuid__ph-shortdesc">retrieves information about the Task run with the specified Runtime ID.</span></p>
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Prerequisites</h2>
+      
+
+      <ul class="ul">
+        <li class="li"><span class="ph">Read access to the assets requested</span></li>
+      </ul>
+    </section>
+
+
+    <section class="section tabs">
+      <ul class="ul tabs">
+        <li class="li api-request sectiontitle tablink">Request</li>
+        <li class="li api-response sectiontitle tablink">Response</li>
+        <li class="li api-notes sectiontitle tablink">Notes</li>
+        <li class="li api-examples sectiontitle tablink">Examples</li>
+      </ul>
+    </section>
+
+
+    <section class="section api-request tabcontent">
+      
+
+      <pre class="pre codeblock normalize-space lang-uri" id="get-runtime-org-ruuid__codeblock-endpoint"><code>   <span class="ph" id="get-runtime-org-ruuid__ph-method">GET</span> <span class="ph"><span class="ph">https://{pod_path}</span><span class="ph">/api/1/rest/public</span></span><span class="ph" id="get-runtime-org-ruuid__ph-sig">/runtime/{org}/{ruuid}</span>?{query_parameters}
+</code></pre>
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Path Parameters</p>
+
+        <table class="table"><caption></caption><colgroup><col style="width:20%"><col style="width:75%"></colgroup><thead class="thead"><tr class="row">
+                <th class="entry valign-top" id="get-runtime-org-ruuid__entry__1">Key</th>
+                <th class="entry valign-top" id="get-runtime-org-ruuid__entry__2">Description</th>
+              </tr></thead><tbody class="tbody">
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org-ruuid__entry__1"><code class="ph codeph">pod_path</code></td>
+                <td class="entry" headers="get-runtime-org-ruuid__entry__2"><span class="ph"><strong class="ph b">Required.</strong></span> The path to your SnapLogic pod.
+                  <p class="p"><span class="ph">Example:</span> <code class="ph codeph">elastic.snaplogic.com</code></p>
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org-ruuid__entry__1"><code class="ph codeph">org</code></td>
+                <td class="entry" headers="get-runtime-org-ruuid__entry__2"><span class="ph"><strong class="ph b">Required.</strong></span> The name of the SnapLogic Org.</td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org-ruuid__entry__1"><code class="ph codeph">ruuid</code></td>
+                <td class="entry" headers="get-runtime-org-ruuid__entry__2"><span class="ph"><strong class="ph b">Required.</strong></span> The Runtime ID of the Pipeline.
+                  <div class="p">To get the Runtime ID of a running Pipeline:
+                    <ol class="ol">
+                      <li class="li">Go to <span class="ph menucascade"><span class="ph uicontrol">Dashboard</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">Pipeline</span></span>.</li>
+                      <li class="li">In the <span class="ph uicontrol">Executing Pipelines of All Projects</span> list, click the Pipeline you want.</li>
+                      <li class="li">From the address bar of the web browser tab that displays the Pipeline, copy the value of the parameter <code class="ph codeph">pipe_runtime_id</code>.</li>
+                    </ol>
+                  </div>
+                </td>
+              </tr>
+            </tbody></table>
+      </div>
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Query Parameters</p>
+
+        <table class="table"><caption></caption><colgroup><col style="width:25%"><col style="width:15%"><col style="width:60%"></colgroup><thead class="thead"><tr class="row">
+                <th class="entry valign-top" id="get-runtime-org-ruuid__entry__9">Key</th>
+                <th class="entry valign-top" id="get-runtime-org-ruuid__entry__10">Type</th>
+                <th class="entry valign-top" id="get-runtime-org-ruuid__entry__11">Description</th>
+              </tr></thead><tbody class="tbody">
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org-ruuid__entry__9"><code class="ph codeph">level</code></td>
+                <td class="entry" headers="get-runtime-org-ruuid__entry__10">string</td>
+                <td class="entry" headers="get-runtime-org-ruuid__entry__11">Returns Task run information at the specified level of detail.
+                  <div class="p"><span class="ph">Valid values:</span>
+                    <ul class="ul">
+                      <li class="li"><code class="ph codeph">Summary</code> – Returns less detailed information.</li>
+                      <li class="li"><code class="ph codeph">Detail</code> – Returns more detailed information.</li>
+                    </ul>
+                  </div>
+                  <p class="p"><span class="ph">Default:</span> <code class="ph codeph">Summary</code></p>
+                </td>
+              </tr>
+            </tbody></table>
+      </div>
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Request Header</p>
+        <div class="div">
+          <p class="p">Specify <dfn class="term">Basic Auth</dfn> for authorization.</p>
+
+          <pre class="pre codeblock normalize-space" id="get-runtime-org-ruuid__d73e705"><code>   Authorization: Basic {your_encoded_security_credentials}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Request Body</p>
+        <p class="p">None.</p>
+      </div>
+    </section>
+
+
+    <section class="section api-response tabcontent">
+      
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Response Header</p>
+        <div class="div">
+          <table class="table"><caption></caption><colgroup><col style="width:20%"><col style="width:75%"></colgroup><thead class="thead"><tr class="row">
+                <th class="entry valign-top" id="get-runtime-org-ruuid__entry__15">Key</th>
+                <th class="entry valign-top" id="get-runtime-org-ruuid__entry__16">Description</th>
+              </tr></thead><tbody class="tbody">
+                <tr class="row">
+                <td class="entry" headers="get-runtime-org-ruuid__entry__15"><code class="ph codeph">X-SL-StatusCode</code></td>
+                <td class="entry" headers="get-runtime-org-ruuid__entry__16">Status code indicating the results of the request.
+                  <p class="p">Learn more: <a class="xref" href="https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml" target="_blank" rel="external noopener">HTTP Status Code Registry</a></p>
+                </td>
+              </tr>
+              </tbody></table>
+        </div>
+      </div>
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Response Body</p>
+
+        <pre class="pre codeblock normalize-space lang-json"><code>   {
+    "response_map": {
+      "feed_call": ...,
+      "subpipeline_parameters": { ... },
+      "llfeed_status": {
+        "message_history": [ ... ],
+        "messages": [ ... ],
+        "documents_count": ...,
+        "max_in_flight": ...,
+        "summary": "..."
+      },
+      "class_fqid": "...",
+      "snode_id": "...",
+      "ttl": ...,
+      "org_snode_id": "...",
+      "cc_prepare_end_ms": ...,
+      "parent_path": "...",
+      "error_list": [ ... ],
+      "child_count": ...,
+      "data_locations": [ ... ],
+      "env_map": { ... },
+      "restart_attempts": ...,
+      "error_documents_count": ...,
+      "env_map_list": [
+        {
+          "ciphertext": "...",
+          "sym_key": {
+            "alias": "...",
+            "key": "..."
+          }
+        }
+      ],
+      "statistics_time_stamp": "...",
+      "job_trigger": "...",
+      "cc_fast_push_expire_time_ms": ...,
+      "fault_injections": ...,
+      "slserver_lease_expire_time": "...",
+      "cc_poll_ms": ...,
+      "instance_id": "...",
+      "mode": "...",
+      "async": ...,
+      "pipe_invoker": "...",
+      "create_time": "...",
+      "duration": ...,
+      "notification": {
+        "slack_recipients": [
+          {
+            "user": [ ... ],
+            "channel": [ ... ]
+          }
+        ]
+      },
+      "label": "...",
+      "state": "...",
+      "replicaset_label": "...",
+      "invoker": "...",
+      "cc_user": "...",
+      "time_stamp": "...",
+      "cc_external_uri": "...",
+      "partition_snode_id": "...",
+      "lint_id_list": [ ... ],
+      "reason": "...",
+      "threads": [ ... ],
+      "prepare_handoff_timestamp": "...",
+      "slot_count": ...,
+      "end_stage": "...",
+      "search": "...",
+      "limits": "...",
+      "class_id": "...",
+      "has_lints": ...,
+      "q_threshold_time": "...",
+      "control_plane_scheduling": [
+        {
+          "update_buckets": { ... },
+          "leases": { ... },
+          "stats": {
+            "active_pipelines": [ ... ],
+            "cpu_user": ...,
+            "mem_used": ...,
+            "active_threads": ...,
+            "open_file_descriptors": ...,
+            "system_load_average": ...
+          },
+          "generation": ...,
+          "slots_in_use": ...,
+          "time_stamp": "...",
+          "_id": "..."
+        }
+      ],
+      "suggest_uris": "...",
+      "task_status": [ ... ],
+      "cc_prepare_start_ms": ...,
+      "phase_snode_id": "...",
+      "duration_ms": ...,
+      "parent_ruuid": "...",
+      "references": [
+        {
+          "path": "...",
+          "pipe_origin": "...",
+          "time_updated": "...",
+          "asset_type": "...",
+          "snode_id": "..."
+        }
+      ],
+      "do_start": ...,
+      "statistics": {
+        "output_views": { ... },
+        "input_views": { ... }
+      },
+      "user_id": "...",
+      "connect_pipeline_views": ...,
+      "container_type": "...",
+      "priority": ...,
+      "instance_fqid": "...",
+      "info_flag_list": [ ... ],
+      "runtime_path_id": "...",
+      "lint_list": [ ... ],
+      "failure": "...",
+      "state_log": [
+        {
+          "timestamp": ...,
+          "ccid": "...",
+          "new_state": "NoUpdate"
+        },
+        {
+          "timestamp": ...,
+          "new_state": "Prepared"
+        },
+        {
+          "timestamp": ...,
+          "new_state": "Started"
+        }
+      ],
+      "ruuid": "...",
+      "parent_pipeline_fqid": "...",
+      "execution_timeout": "...",
+      "path_id": "...",
+      "plex_snode_id": "...",
+      "error": { ... },
+      "plex_path": "...",
+      "invoker_snode_id": "...",
+      "invoker_path_id": "...",
+      "snaplex_label": "...",
+      "platform_globals": {
+        "task": {
+          "start": {
+            "_snaptype_datetime": "..."
+          },
+          "end": {
+            "_snaptype_datetime": "..."
+          }
+        }
+      },
+      "init_xid": "...",
+      "nested_pipeline": ...,
+      "project_snode_id": "...",
+      "class_version": ...,
+      "warning_list": [ ... ],
+      "root_ruuid": "...",
+      "cc_start_ms": ...,
+      "poll_time_stamp": "...",
+      "artifacts_map": {
+        "...": "..."
+      },
+      "artifact_snap_id_map": {
+        "...": "..."
+      },
+      "ccid": "...",
+      "delivery_options": { ... },
+      "metrics": {
+        "queuedCount": ...,
+        "totalSnapDelay": ...,
+        "idleTime": ...,
+        "memoryOverhead": ...,
+        "inFlightCount": ...,
+        "startTime": ...
+      },
+      "expire_time": "...",
+      "runtime_label": "...",
+      "cc_stop_ms": ...,
+      "root_path": "...",
+      "invoker_name": "...",
+      "error_fp_list": [ ... ],
+      "flags": {
+        "immediate_mode": ...,
+        "is_suggest": ...,
+        "connect_views_to_relay": ...
+      },
+      "captured_env_map": {
+        "key1": {
+          "captured": ...,
+          "value": "..."
+        }
+      },
+      "llfeed_context": {
+        "path_id": "...",
+        "job_alias": "...",
+        "masters": [
+          {
+            "uri": "...",
+            "certificate": "...",
+            "cc_id": "..."
+          }
+        ],
+        "max_in_flight": ...
+      },
+      "documents_count": ...,
+      "resolution": "..."
+    },
+    "http_status_code": 200
+  }
+</code></pre>
+
+        
+
+      </div>
+    </section>
+
+
+    <section class="section api-notes tabcontent">
+      
+      <p class="p"></p>
+    </section>
+
+
+    <section class="section api-examples tabcontent">
+      
+      <p class="p"></p>
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../public-apis/public-apis.html">SnapLogic Public APIs</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../public-apis/get-runtime-org.html" title="retrieves information about Task runs that match the specified filters.">GET /runtime/{org}</a></li><li class="linklist"><a class="link" href="../public-apis/get-runtime-apistats-org.html" title="retrieves the concurrent and daily metrics of Tasks running at the specified time.">GET /runtime/api-stats/{org}</a></li><li class="linklist"><a class="link" href="../public-apis/get-runtime-apistats-org-daily.html" title="retrieves the daily metrics of Tasks running on the specified date.">GET /runtime/api-stats/{org}/daily</a></li><li class="linklist"><a class="link" href="../public-apis/get-runtime-apistats-org-concurrent.html" title="retrieves the concurrent metrics of Tasks running at the specified time.">GET /runtime/api-stats/{org}/concurrent</a></li><li class="linklist"><a class="link" href="../public-apis/post-runtime-start-org-ruuid.html" title="resumes the Resumable Task with the specified Runtime ID.">POST /runtime/start/{org}/{ruuid}</a></li><li class="linklist"><a class="link" href="../public-apis/post-runtime-stop-org-ruuid.html" title="stops the Task run with the specified Runtime ID.">POST /runtime/stop/{org}/{ruuid}</a></li></ul></div></nav>
+
+</article></main><footer role="contentinfo"><div class="footer">
+
+  <div class="ftrlegal">
+    <ul class="pipelist">
+      <li><b>Have feedback?</b> Email <ph conkeyref="k-urls/ph-docteam"></ph></li>
+      <li><b>Ask a question</b> in the <ph conkeyref="k-urls/ph-community"></ph></li>
+    </ul>
+    <p class="copyright"><ph conkeyref="k-urls/ph-copyright"></ph></p>
+  </div>
+
+  <script src="/theme/sldocs.js"></script>
+</div></footer></body></html>

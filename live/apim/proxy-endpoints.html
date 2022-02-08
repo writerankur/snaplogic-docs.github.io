@@ -1,0 +1,157 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="description" content="View and edit the endpoints for your proxy."><link rel="stylesheet" type="text/css" href="../theme/commonltr.css"><link rel="stylesheet" type="text/css" href="../theme/sldocs.css"><title>Proxy Endpoints</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <!-- <script src="https://kit.fontawesome.com/enter-your-own-fontawesome-code.js" crossorigin="anonymous"></script> -->
+</head><body id="proxy-endpoints"><header role="banner"><div class="header">
+  <a href="/index.html"><ph class="site-title"><image conkeyref="k-icons/logo"></image> Documentation</ph></a>
+</div></header><nav role="toc"><ul><li><span>Getting Started</span></li><li><span>Release Notes</span></li><li><span>SnapLogic Concepts</span><ul><li><span>Snaps and Pipelines</span><ul><li><span>Snap Reference</span></li></ul></li><li><span>Tasks</span></li><li><span>Flows</span></li></ul></li><li><span>SnapLogic Designer</span></li><li><span>SnapLogic Manager</span><ul><li><span>Proxies</span><ul><li><a href="../apim/proxies.html">Proxies for APIs</a><ul><li><a href="../apim/proxy-details.html">Proxy Details</a></li><li class="active"><a href="../apim/proxy-endpoints.html">Proxy Endpoints</a></li><li><a href="../apim/proxy-endpoint-details.html">Proxy Endpoint Details</a></li><li><a href="../apim/proxy-security-policies.html">Proxy Security Policies</a></li></ul></li></ul></li><li><span>Manager</span><ul><li><a href="../manager/manager-features.html">SnapLogic Features for Orgs</a></li></ul></li></ul></li><li><span>SnapLogic Monitoring Dashboard</span></li><li><a href="../sl-studio/about-studio.html">BETA | SnapLogic Studio</a><ul><li><span>Develop</span></li><li><span>Analyze</span><ul><li><a href="../sl-studio/analyze-execution.html">BETA | Analyze: Execution Overview</a><ul><li><a href="../sl-studio/analyze-execution-detail.html">BETA | Analyze: Execution Details</a></li></ul></li></ul></li><li><span>Explore</span></li></ul></li><li><span>SnapLogic Platform</span></li><li><span>Administration and Configuration</span></li><li><span>SnapLogic API Management</span></li><li><a href="../public-apis/public-apis.html">SnapLogic Public APIs</a><ul><li><span>Activity APIs</span><ul><li><a href="../public-apis/get-activities-org.html">GET /activities/{org}</a></li></ul></li><li><span>Asset ACL APIs</span><ul><li><a href="../public-apis/post-assetapi-acl-projpath.html">POST /assetapi/acl/{project_path}</a></li><li><a href="../public-apis/get-assetapi-acl-projpath.html">GET /assetapi/acl/{project_path}</a></li><li><a href="../public-apis/delete-assetapi-acl-projpath.html">DELETE /assetapi/acl/{project_path}</a></li></ul></li><li><span>Project APIs</span><ul><li><a href="../public-apis/post-project-projpath.html">POST /project/{project_or_space_path}</a></li><li><a href="../public-apis/put-project-projpath.html">PUT /project/{project_or_space_path}</a></li></ul></li><li><span>GitHub APIs</span><ul><li><a href="../public-apis/post-project-checkout-projpath.html">POST /project/checkout/{project_path}</a></li><li><a href="../public-apis/post-project-pull-projpath.html">POST /project/pull/{project_path}</a></li><li><a href="../public-apis/post-ghwebhook.html">POST /ghwebhook</a></li><li><a href="../public-apis/get-repo-status-projpath.html">GET /repo-status/{project_path}</a></li></ul></li><li><span>Log APIs</span><ul><li><a href="../public-apis/get-log-org.html">GET /log/{org}</a></li></ul></li><li><span>Pipeline Monitoring APIs</span><ul><li><a href="../public-apis/get-runtime-org.html">GET /runtime/{org}</a></li><li><a href="../public-apis/get-runtime-org-ruuid.html">GET /runtime/{org}/{ruuid}</a></li><li><a href="../public-apis/get-runtime-apistats-org.html">GET /runtime/api-stats/{org}</a></li><li><a href="../public-apis/get-runtime-apistats-org-daily.html">GET /runtime/api-stats/{org}/daily</a></li><li><a href="../public-apis/get-runtime-apistats-org-concurrent.html">GET /runtime/api-stats/{org}/concurrent</a></li><li><a href="../public-apis/post-runtime-start-org-ruuid.html">POST /runtime/start/{org}/{ruuid}</a></li><li><a href="../public-apis/post-runtime-stop-org-ruuid.html">POST /runtime/stop/{org}/{ruuid}</a></li></ul></li><li><span>Project Migration APIs</span><ul><li><a href="../public-apis/post-project-migrate-projpath.html">POST /project/migrate/{project_path}</a></li><li><a href="../public-apis/get-migrate-status-token.html">GET /migrate/{status_token}</a></li></ul></li><li><span>Snaplex Management APIs</span><ul><li><a href="../public-apis/post-snaplex-restart-plexpath-hostname.html">POST /snaplex/restart/{plex_path}/{hostname}</a></li><li><a href="../public-apis/post-snaplex-maintenance-plexpath-hostname.html">POST /snaplex/maintenance/{plex_path}/{hostname}</a></li><li><a href="../public-apis/get-snaplex-config-plexpath.html">GET /snaplex/config/{plex_path}</a></li></ul></li><li><span>Snaplex Monitoring APIs</span><ul><li><a href="../public-apis/get-snaplex-org.html">GET /snaplex/{org}</a></li></ul></li><li><span>Snaplex Version APIs</span><ul><li><a href="../public-apis/post-snaplex-version-plexpath.html">POST /snaplex/version/{plex_path}</a></li><li><a href="../public-apis/post-snaplex-version-latest-plexpath.html">POST /snaplex/version/latest/{plex_path}</a></li><li><a href="../public-apis/get-snaplex-version.html">GET /snaplex/version</a></li><li><a href="../public-apis/get-snaplex-version-latest.html">GET /snaplex/version/latest</a></li></ul></li><li><span>User and Group Management APIs</span><ul><li><a href="../public-apis/post-users.html">POST /users</a></li><li><a href="../public-apis/get-users-email.html">GET /users/{email}</a></li><li><a href="../public-apis/put-users-email.html">PUT /users/{email}</a></li><li><a href="../public-apis/delete-users-email.html">DELETE /users/{email}</a></li><li><a href="../public-apis/post-groups.html">POST /groups</a></li><li><a href="../public-apis/get-groups-org.html">GET /groups/{org}</a></li><li><a href="../public-apis/get-groups-org-group.html">GET /groups/{org}/{groupname}</a></li><li><a href="../public-apis/patch-groups-org-group.html">PATCH /groups/{org}/{groupname}</a></li><li><a href="../public-apis/put-groups-org-group.html">PUT /groups/{org}/{groupname}</a></li><li><a href="../public-apis/delete-groups-org-group.html">DELETE /groups/{org}/{groupname}</a></li></ul></li><li><a href="../public-apis/api-perms-vs-manager-perms.html">Permissions in Manager and in APIs</a></li></ul></li></ul></nav><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+
+  <h1 class="title topictitle1" id="ariaid-title1">Proxy Endpoints</h1>
+
+  
+
+  <div class="body conbody"><p class="shortdesc">View and edit the endpoints for your proxy.</p>
+
+    <section class="section"><h2 class="title sectiontitle">Overview</h2>
+      
+
+      <p class="p">Proxy endpoints allow users to access your APIs and third-party APIs.</p>
+
+      <div class="p">You can:
+        <ul class="ul">
+          <li class="li"><a class="xref" href="#proxy-endpoints__section-view-list-endpoints">View the list of endpoints for the proxy.</a></li>
+          <li class="li"><a class="xref" href="#proxy-endpoints__section-create-endpoint">Create an endpoint.</a></li>
+          <li class="li"><a class="xref" href="#proxy-endpoints__section-edit-endpoint">View and edit the settings of an endpoint.</a></li>
+          <li class="li"><a class="xref" href="#proxy-endpoints__section-delete-endpoint">Delete an endpoint.</a></li>
+          <li class="li"><a class="xref" href="https://docs-snaplogic.atlassian.net/wiki/spaces/SD/pages/2465399255/Proxy+Security+Policies" target="_blank" rel="external noopener">Manage security policies to control access to the endpoint.</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="section" id="proxy-endpoints__section-prerequisites"><h2 class="title sectiontitle">Prerequisites</h2>
+      
+
+      <ul class="ul">
+        <li class="li"><span class="ph">Org Admin permissions</span></li>
+      </ul>
+    </section>
+
+
+    <section class="section" id="proxy-endpoints__section-view-list-endpoints"><h2 class="title sectiontitle">Viewing the List of Endpoints</h2>
+      
+
+      <div class="div">To view the list of endpoints for a proxy,
+        <ol class="ol">
+        <li class="li"><span class="ph">In SnapLogic <span class="ph uicontrol">Manager</span>, go to <span class="ph menucascade"><span class="ph uicontrol">API Management</span><abbr title="and then"> &gt; </abbr><span class="ph uicontrol">API Manager</span></span>.</span></li>
+        <li class="li"><span class="ph">In the API Manager, go to the <span class="ph uicontrol">APIs &amp; Proxies</span> tab.</span></li>
+        <li class="li"><span class="ph">Set <span class="ph uicontrol">Filter by Type</span> to <span class="ph uicontrol">Proxy</span> and click <span class="ph uicontrol">Search</span>.</span></li>
+        <li class="li"><span class="ph">Click the proxy's name in the list.</span></li>
+        <li class="li">Go to the <span class="ph uicontrol">Proxy Endpoints</span> tab.</li>
+      </ol>
+      </div>
+
+      <div class="div modalimg"><br><div class="imageleft"><img class="image imageleft img-medium" src="../img/apim-proxy-endpoints-list-checkbox.png" alt="The Proxy Endpoints tab of the proxy in the API Manager"></div><br></div>
+    </section>
+
+
+    <section class="section" id="proxy-endpoints__section-create-endpoint"><h2 class="title sectiontitle">Creating an Endpoint</h2>
+      
+
+      <div class="div">To create an endpoint,
+        <ol class="ol">
+          <li class="li"><span class="ph">In the API Manager, open a proxy for editing, then go to the <span class="ph uicontrol">Proxy Endpoints</span> tab.</span></li>
+          <li class="li">Click the plus icon (<img class="image inline-icon" src="../common/../img/icons/LogoN.svg" alt="SnapLogic logo">).</li>
+          <li class="li">Configure the new endpoint.
+            <br><div class="imageleft"><img class="image imageleft img-medium" src="../img/apim-proxy-endpoint-add.png" alt="Create Proxy Endpoint dialog"></div><br>
+            <table class="table flddesc"><caption></caption><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead class="thead">
+                  <tr class="row">
+                    <th class="entry valign-top" id="proxy-endpoints__section-create-endpoint__entry__1">Field</th>
+                    <th class="entry valign-top" id="proxy-endpoints__section-create-endpoint__entry__2">Description</th>
+                  </tr>
+                </thead><tbody class="tbody">
+                  <tr class="row">
+                    <td class="entry" headers="proxy-endpoints__section-create-endpoint__entry__1"><span class="ph uicontrol">Endpoint Name</span></td>
+                    <td class="entry" headers="proxy-endpoints__section-create-endpoint__entry__2">The name for your proxy's endpoint.
+                      <ul class="ul">
+        <li class="li">Must be unique.</li>
+        <li class="li">Must begin with alphanumeric characters A-Z, a-z, or 0-9.</li>
+        <li class="li">Cannot contain |, &lt;, &gt;, [, ], {, }, #, ?, /, and \.</li>
+        <li class="li">Must be no more than 256 characters. If the name includes double-byte characters, the maximum length is shorter.</li>
+      </ul>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="entry" headers="proxy-endpoints__section-create-endpoint__entry__1"><span class="ph uicontrol">URL</span></td>
+                    <td class="entry" headers="proxy-endpoints__section-create-endpoint__entry__2">The URL to which users send their requests.
+                      <p class="p">Example: <code class="ph codeph">https://www.example.com/path/to/the/api</code></p>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="entry" headers="proxy-endpoints__section-create-endpoint__entry__1"><span class="ph uicontrol">HTTP Method(s)</span></td>
+                    <td class="entry" headers="proxy-endpoints__section-create-endpoint__entry__2">One or more REST methods for the API that this endpoint will service.
+                      <ul class="ul">
+                        <li class="li">Get</li>
+                        <li class="li">Put</li>
+                        <li class="li">Head</li>
+                        <li class="li">Post</li>
+                        <li class="li">Patch</li>
+                        <li class="li">Delete</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody></table>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+    <section class="section" id="proxy-endpoints__section-edit-endpoint"><h2 class="title sectiontitle">Editing an Endpoint</h2>
+      
+
+      <div class="div">To edit an endpoint,
+        <ol class="ol">
+          <li class="li"><span class="ph">In the API Manager, open a proxy for editing, then go to the <span class="ph uicontrol">Proxy Endpoints</span> tab.</span></li>
+          <li class="li"><span class="ph">Click the endpoint's name in the list.</span>
+            <div class="div modalimg"><br><div class="imageleft"><img class="image imageleft img-medium" src="../img/apim-proxy-endpoint-details.png" alt="Details about the endpoint"></div><br></div>
+            <p class="p">Learn more: <a class="xref" href="https://docs-snaplogic.atlassian.net/wiki/spaces/SD/pages/2453078030/Proxy+Endpoint+Details" target="_blank" rel="external noopener">Proxy Endpoint Details</a></p>
+          </li>
+          <li class="li"><span class="ph">To edit the proxy details, click the <span class="ph uicontrol">Edit Details</span> button.</span>
+            <div class="note note note_note"><span class="note__title">Note:</span> <span class="ph">You can update only the <span class="ph uicontrol">URL</span> and <span class="ph uicontrol">HTTP Method(s)</span> of the endpoint.</span></div>
+          </li>
+          <li class="li">To apply security policies to the endpoint, click the plus icon (<img class="image inline-icon" src="../common/../img/icons/LogoN.svg" alt="SnapLogic logo">) below the <span class="ph uicontrol">View Applied Policies</span> button.</li>
+        </ol>
+      </div>
+    </section>
+
+
+    <section class="section" id="proxy-endpoints__section-delete-endpoint"><h2 class="title sectiontitle">Deleting an Endpoint</h2>
+      
+
+      <div class="div">To delete an endpoint,
+        <ol class="ol">
+          <li class="li"><span class="ph">In the API Manager, open a proxy for editing, then go to the <span class="ph uicontrol">Proxy Endpoints</span> tab.</span></li>
+          <li class="li">Check the box for the endpoint to delete.</li>
+          <li class="li">Click the trash icon (<img class="image inline-icon" src="../common/../img/icons/delete.svg" alt="trash icon">).</li>
+        </ol>
+      </div>
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../apim/proxies.html" title="Managing proxies for your APIs and third-party APIs.">Proxies for APIs</a></div></div><div class="linklist relinfo"><strong>Related information</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://docs-snaplogic.atlassian.net/wiki/spaces/SD/pages/2463301901/Proxies+for+APIs" target="_blank" rel="external noopener">Proxies for APIs</a></li><li class="linklist"><a class="link" href="https://docs-snaplogic.atlassian.net/wiki/spaces/SD/pages/2465399255/Proxy+Security+Policies" target="_blank" rel="external noopener">Proxy Security Policies</a></li></ul></div></nav>
+
+</article></main><footer role="contentinfo"><div class="footer">
+
+  <div class="ftrlegal">
+    <ul class="pipelist">
+      <li><b>Have feedback?</b> Email <ph conkeyref="k-urls/ph-docteam"></ph></li>
+      <li><b>Ask a question</b> in the <ph conkeyref="k-urls/ph-community"></ph></li>
+    </ul>
+    <p class="copyright"><ph conkeyref="k-urls/ph-copyright"></ph></p>
+  </div>
+
+  <script src="/theme/sldocs.js"></script>
+</div></footer></body></html>

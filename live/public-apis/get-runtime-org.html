@@ -1,0 +1,297 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="description" content="retrieves information about Task runs that match the specified filters."><link rel="stylesheet" type="text/css" href="../theme/commonltr.css"><link rel="stylesheet" type="text/css" href="../theme/sldocs.css"><title>GET /runtime/{org}</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <!-- <script src="https://kit.fontawesome.com/enter-your-own-fontawesome-code.js" crossorigin="anonymous"></script> -->
+</head><body id="get-runtime-org"><header role="banner"><div class="header">
+  <a href="/index.html"><ph class="site-title"><image conkeyref="k-icons/logo"></image> Documentation</ph></a>
+</div></header><nav role="toc"><ul><li><span>Getting Started</span></li><li><span>Release Notes</span></li><li><span>SnapLogic Concepts</span><ul><li><span>Snaps and Pipelines</span><ul><li><span>Snap Reference</span></li></ul></li><li><span>Tasks</span></li><li><span>Flows</span></li></ul></li><li><span>SnapLogic Designer</span></li><li><span>SnapLogic Manager</span><ul><li><span>Proxies</span><ul><li><a href="../apim/proxies.html">Proxies for APIs</a><ul><li><a href="../apim/proxy-details.html">Proxy Details</a></li><li><a href="../apim/proxy-endpoints.html">Proxy Endpoints</a></li><li><a href="../apim/proxy-endpoint-details.html">Proxy Endpoint Details</a></li><li><a href="../apim/proxy-security-policies.html">Proxy Security Policies</a></li></ul></li></ul></li><li><span>Manager</span><ul><li><a href="../manager/manager-features.html">SnapLogic Features for Orgs</a></li></ul></li></ul></li><li><span>SnapLogic Monitoring Dashboard</span></li><li><a href="../sl-studio/about-studio.html">BETA | SnapLogic Studio</a><ul><li><span>Develop</span></li><li><span>Analyze</span><ul><li><a href="../sl-studio/analyze-execution.html">BETA | Analyze: Execution Overview</a><ul><li><a href="../sl-studio/analyze-execution-detail.html">BETA | Analyze: Execution Details</a></li></ul></li></ul></li><li><span>Explore</span></li></ul></li><li><span>SnapLogic Platform</span></li><li><span>Administration and Configuration</span></li><li><span>SnapLogic API Management</span></li><li><a href="../public-apis/public-apis.html">SnapLogic Public APIs</a><ul><li><span>Activity APIs</span><ul><li><a href="../public-apis/get-activities-org.html">GET /activities/{org}</a></li></ul></li><li><span>Asset ACL APIs</span><ul><li><a href="../public-apis/post-assetapi-acl-projpath.html">POST /assetapi/acl/{project_path}</a></li><li><a href="../public-apis/get-assetapi-acl-projpath.html">GET /assetapi/acl/{project_path}</a></li><li><a href="../public-apis/delete-assetapi-acl-projpath.html">DELETE /assetapi/acl/{project_path}</a></li></ul></li><li><span>Project APIs</span><ul><li><a href="../public-apis/post-project-projpath.html">POST /project/{project_or_space_path}</a></li><li><a href="../public-apis/put-project-projpath.html">PUT /project/{project_or_space_path}</a></li></ul></li><li><span>GitHub APIs</span><ul><li><a href="../public-apis/post-project-checkout-projpath.html">POST /project/checkout/{project_path}</a></li><li><a href="../public-apis/post-project-pull-projpath.html">POST /project/pull/{project_path}</a></li><li><a href="../public-apis/post-ghwebhook.html">POST /ghwebhook</a></li><li><a href="../public-apis/get-repo-status-projpath.html">GET /repo-status/{project_path}</a></li></ul></li><li><span>Log APIs</span><ul><li><a href="../public-apis/get-log-org.html">GET /log/{org}</a></li></ul></li><li><span>Pipeline Monitoring APIs</span><ul><li class="active"><a href="../public-apis/get-runtime-org.html">GET /runtime/{org}</a></li><li><a href="../public-apis/get-runtime-org-ruuid.html">GET /runtime/{org}/{ruuid}</a></li><li><a href="../public-apis/get-runtime-apistats-org.html">GET /runtime/api-stats/{org}</a></li><li><a href="../public-apis/get-runtime-apistats-org-daily.html">GET /runtime/api-stats/{org}/daily</a></li><li><a href="../public-apis/get-runtime-apistats-org-concurrent.html">GET /runtime/api-stats/{org}/concurrent</a></li><li><a href="../public-apis/post-runtime-start-org-ruuid.html">POST /runtime/start/{org}/{ruuid}</a></li><li><a href="../public-apis/post-runtime-stop-org-ruuid.html">POST /runtime/stop/{org}/{ruuid}</a></li></ul></li><li><span>Project Migration APIs</span><ul><li><a href="../public-apis/post-project-migrate-projpath.html">POST /project/migrate/{project_path}</a></li><li><a href="../public-apis/get-migrate-status-token.html">GET /migrate/{status_token}</a></li></ul></li><li><span>Snaplex Management APIs</span><ul><li><a href="../public-apis/post-snaplex-restart-plexpath-hostname.html">POST /snaplex/restart/{plex_path}/{hostname}</a></li><li><a href="../public-apis/post-snaplex-maintenance-plexpath-hostname.html">POST /snaplex/maintenance/{plex_path}/{hostname}</a></li><li><a href="../public-apis/get-snaplex-config-plexpath.html">GET /snaplex/config/{plex_path}</a></li></ul></li><li><span>Snaplex Monitoring APIs</span><ul><li><a href="../public-apis/get-snaplex-org.html">GET /snaplex/{org}</a></li></ul></li><li><span>Snaplex Version APIs</span><ul><li><a href="../public-apis/post-snaplex-version-plexpath.html">POST /snaplex/version/{plex_path}</a></li><li><a href="../public-apis/post-snaplex-version-latest-plexpath.html">POST /snaplex/version/latest/{plex_path}</a></li><li><a href="../public-apis/get-snaplex-version.html">GET /snaplex/version</a></li><li><a href="../public-apis/get-snaplex-version-latest.html">GET /snaplex/version/latest</a></li></ul></li><li><span>User and Group Management APIs</span><ul><li><a href="../public-apis/post-users.html">POST /users</a></li><li><a href="../public-apis/get-users-email.html">GET /users/{email}</a></li><li><a href="../public-apis/put-users-email.html">PUT /users/{email}</a></li><li><a href="../public-apis/delete-users-email.html">DELETE /users/{email}</a></li><li><a href="../public-apis/post-groups.html">POST /groups</a></li><li><a href="../public-apis/get-groups-org.html">GET /groups/{org}</a></li><li><a href="../public-apis/get-groups-org-group.html">GET /groups/{org}/{groupname}</a></li><li><a href="../public-apis/patch-groups-org-group.html">PATCH /groups/{org}/{groupname}</a></li><li><a href="../public-apis/put-groups-org-group.html">PUT /groups/{org}/{groupname}</a></li><li><a href="../public-apis/delete-groups-org-group.html">DELETE /groups/{org}/{groupname}</a></li></ul></li><li><a href="../public-apis/api-perms-vs-manager-perms.html">Permissions in Manager and in APIs</a></li></ul></li></ul></nav><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+
+  <h1 class="title topictitle1" id="ariaid-title1">GET /runtime/{org}</h1>
+  
+
+  
+
+  <div class="body conbody"><p class="shortdesc"><span class="ph">retrieves information about Task runs that match the specified filters.</span></p>
+
+    <section class="section"><h2 class="title sectiontitle">Overview</h2>
+      
+
+      <p class="p">This API <span class="ph" id="get-runtime-org__ph-shortdesc">retrieves information about Task runs that match the specified filters.</span></p>
+
+      <div class="note note note_note"><span class="note__title">Note:</span> If a timespan is not set, this API returns information about Task runs within the last hour.</div>
+    </section>
+
+
+    <section class="section"><h2 class="title sectiontitle">Prerequisites</h2>
+      
+
+      <ul class="ul">
+        <li class="li"><span class="ph">Read access to the assets requested</span></li>
+      </ul>
+    </section>
+
+
+    <section class="section tabs">
+      <ul class="ul tabs">
+        <li class="li api-request sectiontitle tablink">Request</li>
+        <li class="li api-response sectiontitle tablink">Response</li>
+        <li class="li api-notes sectiontitle tablink">Notes</li>
+        <li class="li api-examples sectiontitle tablink">Examples</li>
+      </ul>
+    </section>
+
+
+    <section class="section api-request tabcontent">
+      
+
+      <pre class="pre codeblock normalize-space lang-uri" id="get-runtime-org__codeblock-endpoint"><code>   <span class="ph" id="get-runtime-org__ph-method">GET</span> <span class="ph"><span class="ph">https://{pod_path}</span><span class="ph">/api/1/rest/public</span></span><span class="ph" id="get-runtime-org__ph-sig">/runtime/{org}</span>?{query_parameters}
+</code></pre>
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Path Parameters</p>
+
+        <table class="table"><caption></caption><colgroup><col style="width:20%"><col style="width:75%"></colgroup><thead class="thead"><tr class="row">
+                <th class="entry valign-top" id="get-runtime-org__entry__1">Key</th>
+                <th class="entry valign-top" id="get-runtime-org__entry__2">Description</th>
+              </tr></thead><tbody class="tbody">
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__1"><code class="ph codeph">pod_path</code></td>
+                <td class="entry" headers="get-runtime-org__entry__2"><span class="ph"><strong class="ph b">Required.</strong></span> The path to your SnapLogic pod.
+                  <p class="p"><span class="ph">Example:</span> <code class="ph codeph">elastic.snaplogic.com</code></p>
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__1"><code class="ph codeph">org</code></td>
+                <td class="entry" headers="get-runtime-org__entry__2"><span class="ph"><strong class="ph b">Required.</strong></span> The name of the SnapLogic Org.</td>
+              </tr>
+            </tbody></table>
+      </div>
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Query Parameters</p>
+
+        <table class="table"><caption></caption><colgroup><col style="width:25%"><col style="width:15%"><col style="width:60%"></colgroup><thead class="thead"><tr class="row">
+                <th class="entry valign-top" id="get-runtime-org__entry__7">Key</th>
+                <th class="entry valign-top" id="get-runtime-org__entry__8">Type</th>
+                <th class="entry valign-top" id="get-runtime-org__entry__9">Description</th>
+              </tr></thead><tbody class="tbody">
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">plex_label</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">string</td>
+                <td class="entry" headers="get-runtime-org__entry__9">Returns information about Task runs for the specified Snaplex.</td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">cc_label</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">string</td>
+                <td class="entry" headers="get-runtime-org__entry__9">Returns information about Task runs for the specified CC label (JCC node’s hostname).</td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">pipe_name</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">string</td>
+                <td class="entry" headers="get-runtime-org__entry__9">Returns information about Task runs for the specified Pipeline.</td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">user_id</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">string</td>
+                <td class="entry" headers="get-runtime-org__entry__9">Returns information about Task runs triggered by the specified user.</td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">state</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">string</td>
+                <td class="entry" headers="get-runtime-org__entry__9">Returns information about Task runs in the specified state.
+                  <div class="p"><span class="ph">Valid values:</span>
+                    <ul class="ul">
+                      <li class="li"><code class="ph codeph">Queued</code> – Task is queued for processing; all Tasks start in this state.</li>
+                      <li class="li"><code class="ph codeph">NoUpdate</code> – Intermediate state at startup.</li>
+                      <li class="li"><code class="ph codeph">Prepared</code> – Task has been prepared.</li>
+                      <li class="li"><code class="ph codeph">Started</code> – Task has started running.</li>
+                      <li class="li"><code class="ph codeph">Completed</code> – Task has completed successfully.</li>
+                      <li class="li"><code class="ph codeph">Failing</code> – Task encountered an error and is waiting for Snaps to complete execution before moving to the Failed state.</li>
+                      <li class="li"><code class="ph codeph">Failed</code> – Task failed.</li>
+                      <li class="li"><code class="ph codeph">Stopped</code> – Task was stopped either by the user or by the system, as indicated by the "stopper" key.</li>
+                      <li class="li"><code class="ph codeph">Stopping</code> – Task is stopping.</li>
+                      <li class="li"><code class="ph codeph">Suspending</code> – Resumable Task encountered an error and is storing its state.</li>
+                      <li class="li"><code class="ph codeph">Suspended</code> – Resumable Task encountered an error and is suspended.</li>
+                      <li class="li"><code class="ph codeph">Resuming</code> – Resumable Task is loading its state and will resume execution where it left off.</li>
+                    </ul>
+                  </div>
+                  <p class="p"><span class="ph">Default:</span> <code class="ph codeph">Started</code></p>
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">invoker</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">string</td>
+                <td class="entry" headers="get-runtime-org__entry__9">Returns information about Task runs that were invoked in the specified way.
+                  <div class="p"><span class="ph">Valid values:</span>
+                    <ul class="ul">
+                      <li class="li"><code class="ph codeph">triggered</code> – Triggered Tasks</li>
+                      <li class="li"><code class="ph codeph">scheduled</code> – Scheduled Tasks</li>
+                      <li class="li"><code class="ph codeph">always_on</code> – Ultra Tasks</li>
+                      <li class="li"><code class="ph codeph">manual</code> – User-triggered Tasks</li>
+                    </ul>
+                  </div>
+                  <p class="p"><span class="ph">Default:</span> <code class="ph codeph">scheduled</code></p>
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">project_path</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">string</td>
+                <td class="entry" headers="get-runtime-org__entry__9">Returns information about Task runs for the specified project.
+                  <div class="p">Allowed formats:
+                    <ul class="ul">
+                      <li class="li"><code class="ph codeph">/{org}/projects/{project_name}</code></li>
+                      <li class="li"><code class="ph codeph">/{org}/shared</code></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">last_hours</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">integer</td>
+                <td class="entry" headers="get-runtime-org__entry__9">Returns information about Task runs within the specified number of hours, counting backwards from the current time.
+                  <p class="p"><span class="ph">Valid values:</span> 1 to 1080 hours (45 days)</p>
+                  <p class="p"><span class="ph">Default:</span> 1</p>
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">start</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">integer</td>
+                <td class="entry" headers="get-runtime-org__entry__9">Returns information about Task runs since the specified time. <span class="ph">Time must be provided as Unix time in milliseconds.</span></td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">end</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">integer</td>
+                <td class="entry" headers="get-runtime-org__entry__9">Returns information about Task runs before the specified time. <span class="ph">Time must be provided as Unix time in milliseconds.</span></td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">limit</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">integer</td>
+                <td class="entry" headers="get-runtime-org__entry__9"><span class="ph">Returns no more than the specified number of results.</span>
+                  <span class="ph">You can use <code class="ph codeph">limit</code> and <code class="ph codeph">offset</code> for pagination.</span>
+                  <p class="p"><span class="ph">Valid values:</span> 1 to 1,000 ???</p>
+                  <p class="p"><span class="ph">Default:</span> 10
+                    
+                  </p>
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__7"><code class="ph codeph">offset</code></td>
+                <td class="entry" headers="get-runtime-org__entry__8">integer</td>
+                <td class="entry" headers="get-runtime-org__entry__9"><span class="ph">Returns a subset of the results starting at this 0-based index.</span>
+                  <span class="ph">You can use <code class="ph codeph">limit</code> and <code class="ph codeph">offset</code> for pagination.</span>
+                  <p class="p"><span class="ph">Default:</span> 0</p>
+                </td>
+              </tr>
+            </tbody></table>
+      </div>
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Request Header</p>
+        <div class="div">
+          <p class="p">Specify <dfn class="term">Basic Auth</dfn> for authorization.</p>
+
+          <pre class="pre codeblock normalize-space" id="get-runtime-org__d73e705"><code>   Authorization: Basic {your_encoded_security_credentials}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Request Body</p>
+        <p class="p">None.</p>
+      </div>
+    </section>
+
+
+    <section class="section api-response tabcontent">
+      
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Response Header</p>
+        <div class="div">
+          <table class="table"><caption></caption><colgroup><col style="width:20%"><col style="width:75%"></colgroup><thead class="thead"><tr class="row">
+                <th class="entry valign-top" id="get-runtime-org__entry__46">Key</th>
+                <th class="entry valign-top" id="get-runtime-org__entry__47">Description</th>
+              </tr></thead><tbody class="tbody">
+                <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__46"><code class="ph codeph">X-SL-StatusCode</code></td>
+                <td class="entry" headers="get-runtime-org__entry__47">Status code indicating the results of the request.
+                  <p class="p">Learn more: <a class="xref" href="https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml" target="_blank" rel="external noopener">HTTP Status Code Registry</a></p>
+                </td>
+              </tr>
+              </tbody></table>
+        </div>
+      </div>
+
+      <div class="sectiondiv">
+        <p class="p sectiondivtitle">Response Body</p>
+
+        <pre class="pre codeblock normalize-space lang-json"><code> {
+  "response_map": {
+    "entries": [ ... ],
+    "total": ...,
+    "limit": ...,
+    "offset": ...
+  },
+  "http_status_code": 200
+}
+</code></pre>
+
+        <table class="table"><caption></caption><colgroup><col style="width:25%"><col style="width:15%"><col style="width:60%"></colgroup><thead class="thead"><tr class="row">
+                <th class="entry valign-top" id="get-runtime-org__entry__50">Key</th>
+                <th class="entry valign-top" id="get-runtime-org__entry__51">Type</th>
+                <th class="entry valign-top" id="get-runtime-org__entry__52">Description</th>
+              </tr></thead><tbody class="tbody">
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__50"><code class="ph codeph">entries</code></td>
+                <td class="entry" headers="get-runtime-org__entry__51">array</td>
+                <td class="entry" headers="get-runtime-org__entry__52">An array of Objects containing information about each Task run.</td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__50"><code class="ph codeph">total</code></td>
+                <td class="entry" headers="get-runtime-org__entry__51">integer</td>
+                <td class="entry" headers="get-runtime-org__entry__52">The total number of results available.</td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__50"><code class="ph codeph">limit</code></td>
+                <td class="entry" headers="get-runtime-org__entry__51">integer</td>
+                <td class="entry" headers="get-runtime-org__entry__52">The number of results returned.</td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="get-runtime-org__entry__50"><code class="ph codeph">offset</code></td>
+                <td class="entry" headers="get-runtime-org__entry__51">integer</td>
+                <td class="entry" headers="get-runtime-org__entry__52">The index of the first result returned.</td>
+              </tr>
+            </tbody></table>
+
+      </div>
+    </section>
+
+
+    <section class="section api-notes tabcontent">
+      
+      <p class="p"></p>
+    </section>
+
+
+    <section class="section api-examples tabcontent">
+      
+      <p class="p"></p>
+    </section>
+
+  </div>
+
+  <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../public-apis/public-apis.html">SnapLogic Public APIs</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../public-apis/get-runtime-org-ruuid.html" title="retrieves information about the Task run with the specified Runtime ID.">GET /runtime/{org}/{ruuid}</a></li><li class="linklist"><a class="link" href="../public-apis/get-runtime-apistats-org.html" title="retrieves the concurrent and daily metrics of Tasks running at the specified time.">GET /runtime/api-stats/{org}</a></li><li class="linklist"><a class="link" href="../public-apis/get-runtime-apistats-org-daily.html" title="retrieves the daily metrics of Tasks running on the specified date.">GET /runtime/api-stats/{org}/daily</a></li><li class="linklist"><a class="link" href="../public-apis/get-runtime-apistats-org-concurrent.html" title="retrieves the concurrent metrics of Tasks running at the specified time.">GET /runtime/api-stats/{org}/concurrent</a></li><li class="linklist"><a class="link" href="../public-apis/post-runtime-start-org-ruuid.html" title="resumes the Resumable Task with the specified Runtime ID.">POST /runtime/start/{org}/{ruuid}</a></li><li class="linklist"><a class="link" href="../public-apis/post-runtime-stop-org-ruuid.html" title="stops the Task run with the specified Runtime ID.">POST /runtime/stop/{org}/{ruuid}</a></li></ul></div></nav>
+
+</article></main><footer role="contentinfo"><div class="footer">
+
+  <div class="ftrlegal">
+    <ul class="pipelist">
+      <li><b>Have feedback?</b> Email <ph conkeyref="k-urls/ph-docteam"></ph></li>
+      <li><b>Ask a question</b> in the <ph conkeyref="k-urls/ph-community"></ph></li>
+    </ul>
+    <p class="copyright"><ph conkeyref="k-urls/ph-copyright"></ph></p>
+  </div>
+
+  <script src="/theme/sldocs.js"></script>
+</div></footer></body></html>

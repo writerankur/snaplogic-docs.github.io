@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #7f7f7f;
+      }
+    </style>
+  </defs>
+  <title>delete_2-Active</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g>
+        <polygon class="cls-1" points="14 2 14 0 7.96 0 7.96 2 0 2 0 4 22 4 22 2 14 2"/>
+        <path class="cls-1" d="M0,5,3,24H19L22,5ZM8.38,7h5.33V22H8.38Zm-6,0H7V22H4.77ZM17.31,22H15V7h4.62Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

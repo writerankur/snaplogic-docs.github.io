@@ -1,0 +1,606 @@
+/*
+  CSS for the Koji Dev Docs
+*/
+
+/* ==============================
+   Variables
+   ============================== */
+
+:root {
+
+  /* fonts */
+  --font-body: "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-code: Menlo, Monaco, "Courier New", monospace;
+
+  /* grid */
+  --headerheight: 100px;
+  --navwidth: 200px;
+  --mainwidth: 720px;
+
+  /* global */
+  --hover-textcolor: #000000;
+  --bordercolor: #DDDDDD;
+  --borderline: 1px solid var(--bordercolor);
+
+  /* header */
+  --hdr-bgcolor: #FFFFFE;
+  --hdr-textcolor: #007AFF;
+  --hdr-borderline: 5px solid var(--hdr-textcolor);
+
+  /* footer */
+  --ftr-textcolor: #505050;
+
+  /* sidenav */
+  --nav-bggradient: linear-gradient(90deg, #FFFFFE 75%, #DDDDDD 100%);
+  --nav-bgcolor: #FFFFFE;
+  --nav-textcolor: #505050;
+  --nav-bgcolor-active: #007AFF;
+  --nav-textcolor-active: #FFFFFF;
+
+  /* main */
+  --main-textcolor: #101010;
+  --sectiontitle-textcolor: #505050;
+  --shortdesc-textcolor: #959595;
+  --body-font-size: 14px;
+  --rellinks-bgcolor: #F9F9F9;
+
+  /* blocks */
+  --tablehdr-bgcolor: #EEEEEE;
+  --codeblock-bgcolor: #EEEEEE;
+  --quoteblock-bgcolor: #EEEEEE;
+  --quoteblock-textcolor: #888888;
+  --card-bgcolor: #F8F8F8;
+  --tab-bgcolor-active: #F9F9F9;
+  --tab-bgcolor-inactive: #999999;
+  --tab-font-inactive: #888888;
+  --stepsection-bgcolor: #F9F9F9;
+
+  /* callouts */
+  --callout-bgcolor: #7C69DD;
+}
+
+
+/* ==============================
+   Body
+   ============================== */
+
+body {
+  margin: 0;
+  padding: 0;
+  /* height: 100vh; */
+}
+
+
+/* ==============================
+   Grid
+   ============================== */
+
+header { grid-area: gheader; }
+nav[role='toc'] { grid-area: gmenu; }
+main { grid-area: gmain; }
+footer { grid-area: gfooter; }
+
+body {
+  display: grid;
+  grid-template-columns: var(--navwidth) var(--mainwidth) 1fr;
+  grid-gap: 0;
+  grid:
+    'gheader gheader gheader'
+    'gmenu gmain .'
+    'gmenu gfooter gfooter';
+}
+
+
+/* ==============================
+   Fonts, etc
+   ============================== */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--body-font-size);
+  line-height: 26px;
+}
+
+.systemoutput,
+.msgblock, .msgph, .msgnum,
+.codeblock, .codeph,
+pre {
+  font-family: var(--font-code);
+  font-size: 80%;
+  line-height: 1.5;
+}
+
+
+/* ==============================
+   Header
+   ============================== */
+
+header {
+  padding: 20px;
+  position: sticky;  /* Do not use 'fixed' with a grid. */
+  top: 0;
+  z-index: 2;
+  background-color: var(--hdr-bgcolor);
+  border-bottom: var(--hdr-borderline);
+}
+
+header a {
+  text-decoration: none;
+  color: var(--hdr-textcolor);
+}
+
+header img {
+  max-width: 100px;
+  height: auto;
+  vertical-align: -15px;
+  padding: 0 20px;
+}
+
+header .site-title {
+  color: var(--hdr-textcolor);
+  font-size: 2rem;
+  padding-bottom: 20px;
+}
+
+
+/* ==============================
+   Footer
+   ============================== */
+
+footer {
+  padding: 20px;
+  color: var(--ftr-textcolor);
+}
+
+footer p, footer ul { margin: 0; padding: 0; }
+footer li { list-style-type: none; line-height: 1.5; }
+
+footer a {
+  text-decoration: none;
+  color: var(--ftr-textcolor);
+}
+footer a:hover {
+  font-weight: bolder;
+  transition: 0.3s;
+}
+
+
+/* ==============================
+   Navigation
+   ============================== */
+
+/* The side navigation menu */
+nav[role='toc'] {
+  padding: 0 20px;
+  background: var(--nav-bgcolor);
+  background: var(--nav-bggradient);
+  font-size: 90%;
+  color: var(--nav-textcolor);
+}
+
+nav[role='toc'] a {
+  text-decoration: none;
+  color: var(--nav-textcolor);
+}
+
+nav[role='toc'] ul       { padding: 0; }
+nav[role='toc'] ul ul    { padding-left: 5px; }
+nav[role='toc'] ul ul ul { padding-left: 10px; }
+
+nav[role='toc'] li {
+  list-style-type: none;
+}
+nav[role='toc'] li.active {
+  background-color: var(--nav-bgcolor-active);
+}
+nav[role='toc'] li.active li {
+  background-color: none;
+}
+nav[role='toc'] li.active a {
+  font-weight: var(--font-weight-bold);
+  color: var(--nav-textcolor-active);
+}
+
+nav[role='toc'] span,
+nav[role='toc'] a {
+  padding: 5px 10px;
+  line-height: 1;
+  transition: 0.3s;
+}
+nav[role='toc'] a:hover {
+  font-weight: bolder;
+}
+
+nav[role='toc'] > ul > li {
+  margin-top: 15px;
+}
+nav[role='toc'] > ul > li > span,
+nav[role='toc'] > ul > li > a {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+nav[role='toc'] > ul > li > ul > li > span,
+nav[role='toc'] > ul > li > ul > li > a {
+  text-transform: uppercase;
+}
+
+
+/* ==============================
+   Main
+   ============================== */
+
+main {
+  padding: 20px;
+  overflow: auto;
+  overflow-x: hidden;
+  color: var(--main-textcolor);
+}
+
+.shortdesc {
+  font-style: italic;
+  font-size: 90%;
+  color: var(--shortdesc-textcolor);
+}
+.shortdesc::first-letter { text-transform: uppercase !important; }
+.casesent::first-letter { text-transform: uppercase !important; }
+
+
+/* ==============================
+   Sections
+   ============================== */
+
+.sectiontitle, .sectiondivtitle {
+  color: var(--sectiontitle-textcolor);
+}
+
+.sectiondiv,
+.stepsection {
+  margin-left: 2em;
+}
+
+.stepgroup {
+  margin-top: 3em;
+  border-top: 10px solid var(--bordercolor);
+  border-left: 1px solid var(--bordercolor);
+  background-color: var(--stepsection-bgcolor);
+  padding: 5px 20px 10px 20px;
+}
+
+br {
+  line-height: 0;
+}
+
+
+/* ==============================
+   Headers
+   ============================== */
+
+h1, .topictitle1 {
+  margin-top: 0;
+  line-height: 1;
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+
+h2, .sectiontitle {
+  font-size: 1.6875em;
+  font-weight: bold;
+}
+
+h3, .sectiondivtitle {
+  font-size: 1.375em;
+  margin-top: 1.2em;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.125em;
+}
+
+h5 {
+  font-size: 1.125em;
+}
+
+h6 {
+  font-size: 1em;
+}
+
+
+/* ==============================
+   Related links
+   ============================== */
+
+nav.related-links {
+  background-color: var(--rellinks-bgcolor);
+  padding: 20px;
+}
+
+
+/* ==============================
+   Images
+   ============================== */
+
+section img,
+.step img {
+  max-width: 50%;
+  margin-left: 20px;
+  transition: transform .5s;
+}
+/*
+section img:hover,
+.step img:hover {
+  transform: scale(150%) translate(25%);
+  z-index: 9;
+}
+*/
+
+section .img75pc {
+  max-width: 75%;
+}
+
+section .img75pc:hover,
+.inline-icon:hover {
+  transform: none;
+}
+
+.img900px {
+  max-width: 900px;
+}
+
+.inline-icon {
+  margin: 0;
+  padding: 0;
+  width: var(--body-font-size);
+}
+
+
+/* ==============================
+   Notes
+   ============================== */
+
+.note_tip,
+.note_remember,
+.note_warning,
+.note_important,
+.note_note,
+.note {
+  margin: 3px 0;
+  padding: 10px;
+  border-left: 4px solid #bfbfbf;
+}
+
+.note_note                 { background-color: rgba( 224, 239, 255, 0.4 ); }
+.note_tip, .note_remember  { background-color: rgba( 217, 245, 233, 0.4 ); }
+.note_warning              { background-color: rgba( 253, 217, 215, 0.4 ); }
+.note_important            { background-color: rgba( 255, 249, 201, 0.4 ); }
+
+.note .note__title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+/* ==============================
+   Tables
+   ============================== */
+
+table {
+  margin: 5px 0;
+}
+table, th, td {
+  border: 1px solid var(--bordercolor);
+  padding: 10px;
+}
+th {
+  background-color: var(--tablehdr-bgcolor);
+}
+
+td {
+  vertical-align: top;
+}
+
+.flddesc .row .entry:first-child {
+  font-weight: bold;
+}
+
+.num1stcol .row .entry:first-child {
+  font-weight: bold;
+  font-size: 200%;
+  background-color: var(--tablehdr-bgcolor);
+}
+
+th .table-subheader {
+  text-transform: uppercase !important;
+  font-weight: bold;
+  align: center;
+}
+
+
+/* ==============================
+   Code
+   ============================== */
+
+.systemoutput,
+.msgblock, .msgph, .msgnum,
+.codeblock, .codeph,
+pre {
+  background-color: var(--codeblock-bgcolor);
+  border-radius: 5px;
+}
+pre, .codeblock, .msgblock { padding: 10px; }
+.codeph, .msgph, .msgnum   { padding: 2px 10px; }
+
+.lang-js::before,
+.lang-json::before,
+.lang-html::before,
+.lang-cli::before {
+  font-family: var(--font-body);
+  font-style: italic;
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+.lang-js::before    { content: "JavaScript\A"; }
+.lang-json::before  { content: "JSON\A"; }
+.lang-html::before  { content: "HTML\A"; }
+.lang-cli::before   { content: "Command line\A"; }
+
+
+/* ==============================
+   Tabs
+   ============================== */
+
+.tabs {
+  overflow: hidden;
+  padding: 0 0 0 15px;
+  margin-bottom: 0 !important;
+}
+.tabs li {
+  list-style-type: none;
+  background-color: inherit;
+  float: left;
+  border: var(--borderline);
+  border-radius: 5px 5px 0 0;
+  outline: none;
+  cursor: pointer;
+  padding: 3px 16px 10px 16px;
+  color: var(--tab-font-inactive);
+  text-decoration: none;
+  transition: 0.3s;
+}
+.tabs li:hover {
+  color: inherit;
+}
+.tabs li.active {
+  background-color: var(--tab-bgcolor-active);
+  border-bottom-color: var(--tab-bgcolor-active);
+  color: inherit;
+}
+.tabcontent {
+  display: none;
+  padding: 10px;
+  background-color: var(--tab-bgcolor-active);
+  border: 1px solid var(--tab-bgcolor-active);
+  border-radius: 5px;
+  border-top: none;
+  margin-top: 0;
+}
+
+
+/* ==============================
+   Cards
+   ============================== */
+
+.cards > ::marker,
+.cardtitle {
+  font-size: 1.375em;
+  margin-top: 0.5em;
+  font-weight: bold;
+}
+.cardtitle a { text-decoration: none; }
+
+ul.cards { list-style-type: none; }
+
+.widecards > li {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 25px;
+  margin: 15px;
+  border-radius: 8px;
+  min-width: 300px;
+  overflow: auto;
+}
+
+
+/* ==============================
+   Lists
+   ============================== */
+
+.p > ul,
+.p > ol,
+.p > pre {
+  margin-top: 0;
+}
+
+.colist {
+  list-style: none;
+  counter-reset: coctr;
+}
+.colist > li {
+  counter-increment: coctr;
+}
+.colist > li::before {
+  content: counter(coctr);
+  display: inline-block;
+  float: left;
+}
+.codeblock .conum,
+.colist > li::before {
+  width: 15px !important;
+  height: 15px !important;
+  line-height: 15px !important;
+  padding: 5px;
+  margin-right: 5px;
+  color: white !important;
+  background-color: var(--callout-bgcolor) !important;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  font-style: normal;
+  position: relative;
+  user-select: none;
+}
+
+.ul-checklist {
+  list-style-type: "\2610\00A0";  /* empty checkbox then nbsp */
+  list-style-position: outside;
+}
+
+
+/* ==============================
+   Inline components
+   ============================== */
+
+.term {
+  font-style: italic;
+  text-decoration: none;
+}
+
+.apiname,
+.pkg {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+.uicontrol {
+  font-weight: bold;
+}
+.uicontrol.kbd {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+.uicontrol.txt {}
+.uicontrol.btn {}
+.uicontrol.tab {}
+
+.uicontrol.store-btn {
+  padding: 4px 12px;
+  background-color: rgb(29, 29, 31);
+  border-radius: 100px;
+  text-size: 80%;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgb(0, 122, 255);
+}
+
+.char1-lc::first-letter { text-transform: lowercase !important; }
+.char1-uc::first-letter { text-transform: uppercase !important; }
+
+
+/* ==============================
+   Glossary
+   ============================== */
+
+.glossdef {
+  padding-left: 20px;
+}
+
+
+/* ============================== */
