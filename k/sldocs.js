@@ -30,6 +30,8 @@ $(document).ready(function() {
     $(myX).addClass( 'active' );
     $(myX).show();
   });
+  /* if ( $('#section-api-notes').length ) { $('.api-notes').show() } else { $('.api-notes').hide(); } */
+  /* if ( $('#section-api-examples').length ) { $('.api-examples').show() } else { $('.api-examples').hide(); } */
   $('.tabs>li:first-child').trigger( 'click' );
 
 

@@ -1,0 +1,314 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="description" content="Information about an activity."><link rel="stylesheet" type="text/css" href="../theme/commonltr.css"><link rel="stylesheet" type="text/css" href="../theme/sldocs.css"><title>Reference: Activity Metadata</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <!-- <script src="https://kit.fontawesome.com/enter-your-own-fontawesome-code.js" crossorigin="anonymous"></script> -->
+</head><body id="ref-activity-metadata"><header role="banner"><div class="header">
+  <a href="/index.html"><img src="https://snaplogic-docs.github.io/k/LogoN.svg" alt="SnapLogic Logo"> <ph class="site-title">Documentation</ph></a>
+</div></header><nav role="toc"><ul><li><span>Getting Started</span></li><li><span>Release Notes</span></li><li><span>SnapLogic Concepts</span><ul><li><span>Snaps and Pipelines</span><ul><li><span>Snap Reference</span></li></ul></li><li><span>Tasks</span></li><li><span>Flows</span></li></ul></li><li><span>SnapLogic Designer</span></li><li><span>SnapLogic Manager</span><ul><li><span>Proxies</span><ul><li><a href="../apim/proxies.html">Proxies for APIs</a><ul><li><a href="../apim/proxy-details.html">Proxy Details</a></li><li><a href="../apim/proxy-endpoints.html">Proxy Endpoints</a></li><li><a href="../apim/proxy-endpoint-details.html">Proxy Endpoint Details</a></li><li><a href="../apim/proxy-security-policies.html">Proxy Security Policies</a></li></ul></li></ul></li><li><span>Manager</span><ul><li><a href="../manager/manager-features.html">SnapLogic Features for Orgs</a></li></ul></li></ul></li><li><span>SnapLogic Monitoring Dashboard</span></li><li><a href="../sl-studio/about-studio.html">BETA | SnapLogic Studio</a><ul><li><span>Develop</span></li><li><span>Analyze</span><ul><li><a href="../sl-studio/analyze-execution.html">BETA | Analyze: Execution Overview</a><ul><li><a href="../sl-studio/analyze-execution-detail.html">BETA | Analyze: Execution Details</a></li></ul></li></ul></li><li><span>Explore</span></li></ul></li><li><span>SnapLogic Platform</span></li><li><span>Administration and Configuration</span></li><li><span>SnapLogic API Management</span></li><li><a href="../public-apis/public-apis.html">SnapLogic Public APIs</a><ul><li><span>Activity APIs</span><ul><li><a href="../public-apis/get-activities-org.html">GET /activities/{org}</a></li></ul></li><li><span>Asset ACL APIs</span><ul><li><a href="../public-apis/post-assetapi-acl-projpath.html">POST /assetapi/acl/{project_path}</a></li><li><a href="../public-apis/get-assetapi-acl-projpath.html">GET /assetapi/acl/{project_path}</a></li><li><a href="../public-apis/delete-assetapi-acl-projpath.html">DELETE /assetapi/acl/{project_path}</a></li></ul></li><li><span>Project APIs</span><ul><li><a href="../public-apis/post-project-projpath.html">POST /project/{project_or_space_path}</a></li><li><a href="../public-apis/put-project-projpath.html">PUT /project/{project_or_space_path}</a></li></ul></li><li><span>GitHub APIs</span><ul><li><a href="../public-apis/post-project-checkout-projpath.html">POST /project/checkout/{project_path}</a></li><li><a href="../public-apis/post-project-pull-projpath.html">POST /project/pull/{project_path}</a></li><li><a href="../public-apis/post-ghwebhook.html">POST /ghwebhook</a></li><li><a href="../public-apis/get-repo-status-projpath.html">GET /repo-status/{project_path}</a></li></ul></li><li><span>Log APIs</span><ul><li><a href="../public-apis/get-log-org.html">GET /log/{org}</a></li></ul></li><li><span>Pipeline Monitoring APIs</span><ul><li><a href="../public-apis/get-runtime-org.html">GET /runtime/{org}</a></li><li><a href="../public-apis/get-runtime-org-ruuid.html">GET /runtime/{org}/{ruuid}</a></li><li><a href="../public-apis/get-runtime-apistats-org.html">GET /runtime/api-stats/{org}</a></li><li><a href="../public-apis/get-runtime-apistats-org-daily.html">GET /runtime/api-stats/{org}/daily</a></li><li><a href="../public-apis/get-runtime-apistats-org-concurrent.html">GET /runtime/api-stats/{org}/concurrent</a></li><li><a href="../public-apis/post-runtime-start-org-ruuid.html">POST /runtime/start/{org}/{ruuid}</a></li><li><a href="../public-apis/post-runtime-stop-org-ruuid.html">POST /runtime/stop/{org}/{ruuid}</a></li></ul></li><li><span>Project Migration APIs</span><ul><li><a href="../public-apis/post-project-migrate-projpath.html">POST /project/migrate/{project_path}</a></li><li><a href="../public-apis/get-migrate-status-token.html">GET /migrate/{status_token}</a></li></ul></li><li><span>Snaplex Management APIs</span><ul><li><a href="../public-apis/post-snaplex-restart-plexpath-hostname.html">POST /snaplex/restart/{plex_path}/{hostname}</a></li><li><a href="../public-apis/post-snaplex-maintenance-plexpath-hostname.html">POST /snaplex/maintenance/{plex_path}/{hostname}</a></li><li><a href="../public-apis/get-snaplex-config-plexpath.html">GET /snaplex/config/{plex_path}</a></li></ul></li><li><span>Snaplex Monitoring APIs</span><ul><li><a href="../public-apis/get-snaplex-org.html">GET /snaplex/{org}</a></li></ul></li><li><span>Snaplex Version APIs</span><ul><li><a href="../public-apis/post-snaplex-version-plexpath.html">POST /snaplex/version/{plex_path}</a></li><li><a href="../public-apis/post-snaplex-version-latest-plexpath.html">POST /snaplex/version/latest/{plex_path}</a></li><li><a href="../public-apis/get-snaplex-version.html">GET /snaplex/version</a></li><li><a href="../public-apis/get-snaplex-version-latest.html">GET /snaplex/version/latest</a></li></ul></li><li><span>User and Group Management APIs</span><ul><li><a href="../public-apis/post-users.html">POST /users</a></li><li><a href="../public-apis/get-users-email.html">GET /users/{email}</a></li><li><a href="../public-apis/put-users-email.html">PUT /users/{email}</a></li><li><a href="../public-apis/delete-users-email.html">DELETE /users/{email}</a></li><li><a href="../public-apis/post-groups.html">POST /groups</a></li><li><a href="../public-apis/get-groups-org.html">GET /groups/{org}</a></li><li><a href="../public-apis/get-groups-org-group.html">GET /groups/{org}/{groupname}</a></li><li><a href="../public-apis/patch-groups-org-group.html">PATCH /groups/{org}/{groupname}</a></li><li><a href="../public-apis/put-groups-org-group.html">PUT /groups/{org}/{groupname}</a></li><li><a href="../public-apis/delete-groups-org-group.html">DELETE /groups/{org}/{groupname}</a></li></ul></li><li><a href="../public-apis/api-perms-vs-manager-perms.html">Permissions in Manager and in APIs</a></li><li class="active"><a href="../public-apis/ref-activity-metadata.html">Reference: Activity Metadata</a></li></ul></li></ul></nav><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+
+  <h1 class="title topictitle1" id="ariaid-title1">Reference: Activity Metadata</h1>
+
+  
+
+  <div class="body refbody"><p class="shortdesc">Information about an activity.</p>
+
+    <section class="section">
+      <p class="p">You can get information about activities that occur in your Snaplex through the public API <a class="xref" href="get-activities-org.html" title="retrieves information about activities performed within an organization."><code class="ph codeph">GET /activities/{org}</code></a>.</p>
+
+      <p class="p">The response has an <code class="ph codeph">entries</code> component, which includes several of the following information:</p>
+
+      <table class="table"><caption></caption><colgroup><col style="width:25%"><col style="width:15%"><col style="width:60%"></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry valign-top" id="ref-activity-metadata__entry__1">Key</th>
+              <th class="entry valign-top" id="ref-activity-metadata__entry__2">Type</th>
+              <th class="entry valign-top" id="ref-activity-metadata__entry__3">Description</th>
+            </tr>
+          </thead><tbody class="tbody">
+
+            
+            <tr class="row ev-session ev-asset ev-plex ev-usergrp ev-policy ev-security" id="ref-activity-metadata__row-_id">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">_id</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The ID of the activity. ???</td>
+            </tr>
+
+            
+            <tr class="row ev-asset ev-plex ev-policy ev-security" id="ref-activity-metadata__row-asset_label">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">asset_label</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The label or name of the asset.</td>
+            </tr>
+
+            
+            <tr class="row ev-asset ev-plex ev-policy ev-security" id="ref-activity-metadata__row-asset_path">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">asset_path</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The path to the affected asset.
+                <p class="p"><span class="ph">Format:</span> <code class="ph codeph">/{org}/{project_space}/{project_name}</code></p>
+              </td>
+            </tr>
+
+            
+            <tr class="row ev-asset ev-plex ev-policy ev-security" id="ref-activity-metadata__row-asset_type">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">asset_type</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The type of the asset affected by the activity's action.
+                <div class="p"><span class="ph">Possible values:</span>
+                  <ul class="ul">
+                    <li class="li"><code class="ph codeph">API</code></li>
+                    <li class="li"><code class="ph codeph">Dir</code></li>
+                    <li class="li"><code class="ph codeph">Plex</code></li>
+                    <li class="li"><code class="ph codeph">Proxy</code></li>
+                    <li class="li"><code class="ph codeph">???</code></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+
+            
+            <tr class="row ev-session ev-asset ev-plex ev-usergrp ev-policy ev-security" id="ref-activity-metadata__row-by_whom">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">by_whom</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The entity that performed the activity.</td>
+            </tr>
+
+            
+            <tr class="row ev-session ev-asset ev-plex ev-usergrp ev-policy ev-security" id="ref-activity-metadata__row-create_time">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">create_time</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The time when the activity's action was performed.
+                <span class="ph"><span class="ph">Format:</span> <a class="xref" href="https://www.w3.org/TR/NOTE-datetime" target="_blank" rel="external noopener">UTC</a></span>
+              </td>
+            </tr>
+
+            
+            <tr class="row ev-asset ev-plex ev-policy ev-security" id="ref-activity-metadata__row-display_type">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">display_type</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The type of the information, which indicates how it should be displayed. ???
+                <div class="p"><span class="ph">Possible values:</span>
+                  <ul class="ul">
+                    <li class="li"><code class="ph codeph">Proxy</code></li>
+                    <li class="li"><code class="ph codeph">???</code></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+
+            
+            <tr class="row ev-session ev-asset ev-plex ev-usergrp ev-policy ev-security" id="ref-activity-metadata__row-event_type">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">event_type</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The type of event or activity that occurred.
+                <div class="p"><span class="ph">Possible values:</span>
+                  <ul class="ul">
+                    <li class="li">Session events:
+                      <ul class="ul">
+                        <li class="li"><code class="ph codeph">session_start</code></li>  
+                      </ul>
+                    </li>
+                    <li class="li">Asset events:  
+                      <ul class="ul">
+                        <li class="li"><code class="ph codeph">asset_create</code></li>
+                        <li class="li"><code class="ph codeph">asset_delete</code></li>
+                        <li class="li"><code class="ph codeph">asset_rename</code></li>
+                        <li class="li"><code class="ph codeph">asset_update</code></li>
+                      </ul>
+                    </li>
+                    <li class="li">Policy events:  
+                      <ul class="ul">
+                        <li class="li"><code class="ph codeph">policy_create</code></li>
+                        <li class="li"><code class="ph codeph">policy_delete</code></li>
+                      </ul>
+                    </li>
+                    <li class="li">Security events:  
+                      <ul class="ul">
+                        <li class="li"><code class="ph codeph">acl_add</code></li>
+                      </ul>
+                    </li>
+                    <li class="li">Snaplex events:  
+                      <ul class="ul">
+                        <li class="li"><code class="ph codeph">plex_node_add</code></li>
+                      </ul>
+                    </li>
+                    <li class="li">User and Group events:  
+                      <ul class="ul">
+                        <li class="li"><code class="ph codeph">approve_devportal_user</code></li>
+                        <li class="li"><code class="ph codeph">group_create</code></li>
+                        <li class="li"><code class="ph codeph">org_add_user</code></li>
+                        <li class="li"><code class="ph codeph">password_reset</code></li>
+                        <li class="li"><code class="ph codeph">user_create</code></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+
+            
+            <tr class="row ev-usergrp" id="ref-activity-metadata__row-group_name">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">group_name</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The name of the group to manage.</td>
+            </tr>
+
+            
+            <tr class="row ev-session ev-plex" id="ref-activity-metadata__row-ip_address">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">ip_address</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">
+                <p class="p">In Session events: The IP address of the user that started the session. ???</p>
+                <p class="p">In Snaplex events: The IP address of the Snaplex. ???</p>
+              </td>
+            </tr>
+
+            
+            <tr class="row ev-asset" id="ref-activity-metadata__row-new_name">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">new_name</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">If <code class="ph codeph">event_type</code> is <code class="ph codeph">asset_rename</code>, the new name of the asset.</td>
+            </tr>
+
+            
+            <tr class="row ev-session ev-asset ev-plex ev-usergrp ev-policy ev-security" id="ref-activity-metadata__row-org_label">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">org_label</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The label or name of the Org where the activity occurred.</td>
+            </tr>
+
+            
+            <tr class="row ev-asset ev-plex ev-policy ev-security" id="ref-activity-metadata__row-parent_path">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">parent_path</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The path to the parent of the activity.
+                <p class="p"><span class="ph">Format:</span> <code class="ph codeph">/{org}/{project_space}</code></p>
+              </td>
+            </tr>
+
+            
+            <tr class="row ev-asset ev-plex ev-policy ev-security" id="ref-activity-metadata__row-parent_type">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">parent_type</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The type of the parent activity.
+                <span class="ph">Possible values:</span>
+                <ul class="ul">
+                  <li class="li"><code class="ph codeph">apim</code></li>
+                  <li class="li"><code class="ph codeph">Project</code></li>
+                  <li class="li"><code class="ph codeph">???</code></li>
+                </ul>
+              </td>
+            </tr>
+
+            
+            <tr class="row ev-asset ev-policy ev-security" id="ref-activity-metadata__row-partition_label">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">partition_label</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The label or name of ???</td>
+            </tr>
+
+            
+            <tr class="row ev-security" id="ref-activity-metadata__row-perm-perms">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">perm</code> » <code class="ph codeph">perms</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">array</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">An array containing one or more of the following permissions:
+                  <ul class="ul">
+                    <li class="li"><code class="ph codeph">"R"</code> – read</li>
+                    <li class="li"><code class="ph codeph">"W"</code> – write</li>
+                    <li class="li"><code class="ph codeph">"X"</code> – execute</li>
+                    
+                  </ul>
+                  <p class="p">Learn more: <a class="xref" href="../common/../public-apis/api-perms-vs-manager-perms.html" title="Mapping between Manager permissions and API permissions.">Permissions in Manager and in APIs</a></p>
+                </td>
+            </tr>
+            <tr class="row ev-security" id="ref-activity-metadata__row-perm-subject_type">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">perm</code> » <code class="ph codeph">subject_type</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The type of the <code class="ph codeph">subject</code>.
+                <div class="p"><span class="ph">Possible values:</span>
+                  <ul class="ul">
+                    <li class="li"><code class="ph codeph">USER</code></li>
+                    <li class="li"><code class="ph codeph">???</code></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr class="row ev-security" id="ref-activity-metadata__row-perm-inherit">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">perm</code> » <code class="ph codeph">inherit</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">Boolean</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">If <code class="ph codeph">true</code>, ???</td>
+            </tr>
+
+            
+            <tr class="row ev-security" id="ref-activity-metadata__row-perms_entry">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">perms_entry</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">???</td>
+            </tr>
+
+            
+            
+            <tr class="row ev-security" id="ref-activity-metadata__row-perms_subject">
+              <td class="entry" headers="ref-activity-metadata__entry__1">
+                <p class="p"><code class="ph codeph">perm</code> » <code class="ph codeph">subject</code></p>
+                <p class="p"><code class="ph codeph">perms_subject</code></p>
+              </td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The user or asset to be assigned the permissions. ???</td>
+            </tr>
+
+
+            
+            <tr class="row ev-asset ev-plex ev-policy ev-security" id="ref-activity-metadata__row-project_label">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">project_label</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The label or name of the Project where the activity occurred.</td>
+            </tr>
+
+            
+            <tr class="row ev-session ev-usergrp" id="ref-activity-metadata__row-snaplogic_admin_update">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">snaplogic_admin_update</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">Boolean</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">If <code class="ph codeph">true</code>, ???</td>
+            </tr>
+
+            
+            <tr class="row ev-session ev-asset ev-plex ev-usergrp ev-policy ev-security" id="ref-activity-metadata__row-template">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">template</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">The template for the log message that describes the activity. ???</td>
+            </tr>
+
+            
+            <tr class="row ev-session ev-usergrp" id="ref-activity-metadata__row-user_id">
+              <td class="entry" headers="ref-activity-metadata__entry__1"><code class="ph codeph">user_id</code></td>
+              <td class="entry" headers="ref-activity-metadata__entry__2">string</td>
+              <td class="entry" headers="ref-activity-metadata__entry__3">
+                <p class="p">Session events: The same value as <code class="ph codeph">by_whom</code>.</p>
+                <p class="p">User events: The username or email address associated with the user account being managed.</p>
+                <p class="p">???</p>
+              </td>
+            </tr>
+
+
+            
+
+          </tbody></table>
+
+    </section>
+
+  </div>
+
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../public-apis/public-apis.html">SnapLogic Public APIs</a></div></div></nav></article></main><footer role="contentinfo"><div class="footer">
+
+  <div class="ftrlegal">
+    <ul class="pipelist">
+      <li><b>Have feedback?</b> Email <a href="mailto:documentation@snaplogic.com">documentation@snaplogic.com</a></li>
+      <li><b>Ask a question</b> in the <a href="https://community.snaplogic.com/">SnapLogic Community</a></li>
+    </ul>
+    <p class="copyright"><a href="https://snaplogic-docs.github.io/live/refs/copyright.html">© 2017-2022 SnapLogic, Inc.</a></p>
+  </div>
+
+  <script src="/k/sldocs.js"></script>
+  <script src="/theme/sldocs.js"></script>
+</div></footer></body></html>
